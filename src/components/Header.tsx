@@ -17,10 +17,9 @@ export default function Header() {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "#quote-calculator", label: "Get Quote" },
     { href: "#services", label: "What We Clean" },
     { href: "#why-us", label: "Why Us" },
-    { href: "#contact", label: "Contact" },
+    { href: "#contact", label: "Get Quote" },
   ];
 
   return (

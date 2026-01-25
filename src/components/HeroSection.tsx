@@ -73,7 +73,7 @@ export default function HeroSection() {
                 <span>0478 759 693</span>
               </a>
               <a
-                href="#quote-calculator"
+                href="#contact"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white font-semibold rounded-xl transition-all shadow-xl shadow-teal-500/25 hover:shadow-2xl hover:shadow-teal-500/30 hover:-translate-y-0.5"
               >
                 Get Instant Quote

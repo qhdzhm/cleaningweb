@@ -1,5 +1,4 @@
 import HeroSection from "@/components/HeroSection";
-import Calculator from "@/components/Calculator";
 import WhatWeClean from "@/components/WhatWeClean";
 import CleaningPlans from "@/components/CleaningPlans";
 import WhyChooseUs from "@/components/WhyChooseUs";
@@ -13,9 +12,6 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero - 介绍服务 + 右侧图片 */}
       <HeroSection />
-      
-      {/* Calculator - 即时报价计算器 */}
-      <Calculator />
       
       {/* What We Clean - 我们清洁什么 + 左侧图片 */}
       <WhatWeClean />
