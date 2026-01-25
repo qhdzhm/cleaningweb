@@ -3,6 +3,10 @@ import "./globals.css";
 import Header from "@/components/Header";
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/icon.svg",
+    apple: "/icon.svg",
+  },
   title: "NaturePure Cleaning | Chemical-Free House Cleaning Hobart | Eco-Friendly Cleaners",
   description: "Professional chemical-free house cleaning in Hobart, Tasmania. We use only water and premium microfibre - safe for kids, pets & allergies. Weekly, fortnightly & monthly cleaning. Call 0478 759 693 for a free quote!",
   keywords: [
