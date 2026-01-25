@@ -1,0 +1,6 @@
+# robots.txt for NaturePure Cleaning
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://naturepurecleaning.com.au/sitemap.xml

@@ -110,7 +110,7 @@ export default function CTASection() {
             {/* Contact Methods */}
             <div className="space-y-3">
               <a 
-                href="tel:0400000000"
+                href="tel:0478759693"
                 className="flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-teal-50 transition-colors group border border-slate-100"
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -120,12 +120,12 @@ export default function CTASection() {
                 </div>
                 <div>
                   <p className="text-sm text-slate-500">Call or text us</p>
-                  <p className="text-lg font-bold text-slate-800">0400 XXX XXX</p>
+                  <p className="text-lg font-bold text-slate-800">0478 759 693</p>
                 </div>
               </a>
 
               <a 
-                href="mailto:hello@naturepure.com.au"
+                href="mailto:qhdwq27@gmail.com"
                 className="flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-teal-50 transition-colors group border border-slate-100"
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -135,7 +135,7 @@ export default function CTASection() {
                 </div>
                 <div>
                   <p className="text-sm text-slate-500">Email us</p>
-                  <p className="text-lg font-bold text-slate-800">hello@naturepure.com.au</p>
+                  <p className="text-lg font-bold text-slate-800">qhdwq27@gmail.com</p>
                 </div>
               </a>
             </div>
