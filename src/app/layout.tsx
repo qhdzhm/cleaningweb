@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "NaturePure Cleaning | Chemical-Free House Cleaning Hobart | Eco-Friendly Cleaners",
   description: "Professional chemical-free house cleaning in Hobart, Tasmania. We use only water and premium microfibre - safe for kids, pets & allergies. Weekly, fortnightly & monthly cleaning. Call 0478 759 693 for a free quote!",
   keywords: [
+    // 主关键词
     "house cleaning Hobart",
     "chemical free cleaning Hobart",
     "eco friendly cleaning Tasmania",
@@ -18,6 +19,21 @@ export const metadata: Metadata = {
     "natural cleaning service",
     "weekly cleaning Hobart",
     "fortnightly cleaning service",
+    // 郊区关键词 - 根据你服务的区域调整
+    "house cleaning Sandy Bay",
+    "cleaning service Kingston",
+    "house cleaning Blackmans Bay",
+    "cleaning service Battery Point",
+    "house cleaning Glenorchy",
+    "cleaning service Moonah",
+    "house cleaning Bellerive",
+    "cleaning service Howrah",
+    "house cleaning Lindisfarne",
+    "cleaning service New Town",
+    "house cleaning South Hobart",
+    "cleaning service Taroona",
+    "house cleaning Rosny",
+    "cleaning service Clarence",
   ],
   authors: [{ name: "NaturePure Cleaning" }],
   creator: "NaturePure Cleaning",
@@ -70,7 +86,6 @@ const jsonLd = {
   description: "Professional chemical-free house cleaning service in Hobart, Tasmania. We use only water and premium microfibre for a healthier clean.",
   url: "https://naturepurecleaning.com.au",
   telephone: "+61478759693",
-  email: "qhdwq27@gmail.com",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Hobart",
