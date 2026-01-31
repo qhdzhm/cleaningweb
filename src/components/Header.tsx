@@ -6,6 +6,7 @@ import Link from "next/link";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showPromo, setShowPromo] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,30 +25,51 @@ export default function Header() {
 
   return (
     <>
-      {/* Top Announcement Bar */}
-      <div className="fixed top-0 left-0 right-0 bg-gradient-to-r from-teal-600 via-cyan-600 to-teal-600 text-white py-2 px-4 z-50">
-        <div className="max-w-7xl mx-auto flex items-center justify-center gap-3 text-sm">
-          <span className="hidden sm:inline-flex items-center gap-1.5">
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"/>
-            </svg>
-            <span>Serving Hobart & Surrounds</span>
-          </span>
-          <span className="hidden sm:inline text-white/60">|</span>
-          <span className="inline-flex items-center gap-1.5">
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-            </svg>
-            <span className="font-medium">Chemical-Free Cleaning</span>
-          </span>
-          <span className="text-white/60">|</span>
-          <a href="tel:0478759693" className="font-medium hover:underline">Call 0478 759 693</a>
+      {/* Promo Banner - Grand Opening Special */}
+      {showPromo && (
+        <div className="fixed top-0 left-0 right-0 bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 text-white py-3 px-4 z-50 shadow-lg">
+          <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+            <div className="flex items-center justify-center gap-3 flex-1 text-center">
+              {/* Sparkle Icon */}
+              <svg className="w-5 h-5 animate-pulse hidden sm:block" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              
+              <div className="flex flex-col sm:flex-row items-center gap-2">
+                <span className="font-bold text-lg px-3 py-1 bg-white/20 rounded-lg backdrop-blur-sm">
+                  🎉 GRAND OPENING SPECIAL
+                </span>
+                <span className="font-semibold text-base sm:text-lg">
+                  20% OFF Your First Clean!
+                </span>
+                <span className="hidden md:inline text-sm bg-white/10 px-3 py-1 rounded-full">
+                  Limited Time Only
+                </span>
+              </div>
+
+              {/* Sparkle Icon */}
+              <svg className="w-5 h-5 animate-pulse hidden sm:block" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </div>
+
+            {/* Close Button */}
+            <button
+              onClick={() => setShowPromo(false)}
+              className="p-1 hover:bg-white/20 rounded-lg transition-colors"
+              aria-label="Close promo banner"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Main Header */}
       <header 
-        className={`fixed top-9 left-0 right-0 z-40 transition-all duration-300 ${
+        className={`fixed ${showPromo ? 'top-[52px]' : 'top-0'} left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled 
             ? "bg-white/98 backdrop-blur-md shadow-lg" 
             : "bg-white/95 backdrop-blur-sm"

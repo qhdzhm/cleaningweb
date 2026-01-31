@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-44 pb-20 px-4 overflow-hidden">
+    <section className="relative pt-48 pb-20 px-4 overflow-hidden">{/* Increased pt from 44 to 48 for promo banner */}
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-cyan-50/50 to-teal-50/30"></div>
       
