@@ -7,37 +7,37 @@ export const metadata: Metadata = {
     icon: "/icon.svg",
     apple: "/icon.svg",
   },
-  title: "NaturePure Cleaning | Chemical-Free House Cleaning Hobart | Eco-Friendly Cleaners",
-  description: "Professional chemical-free house cleaning in Hobart, Tasmania. We use only water and premium microfibre - safe for kids, pets & allergies. Weekly, fortnightly & monthly cleaning. Call 0478 759 693 for a free quote!",
+  title: "NaturePure Cleaning | Hobart Commercial, Airbnb & House Cleaning",
+  description: "Premier cleaning agency in Hobart. We specialize in Office Cleaning, Airbnb Turnover, End of Lease, and Regular Home Cleaning. Tech-enabled, eco-friendly, and reliable.",
   keywords: [
-    // 主关键词
+    // Core Services
     "house cleaning Hobart",
-    "chemical free cleaning Hobart",
-    "eco friendly cleaning Tasmania",
-    "regular cleaning service Hobart",
-    "domestic cleaning Hobart",
-    "home cleaning Hobart",
-    "cleaning service Tasmania",
-    "microfibre cleaning",
-    "green cleaning Hobart",
-    "natural cleaning service",
-    "weekly cleaning Hobart",
-    "fortnightly cleaning service",
-    // 郊区关键词 - 根据你服务的区域调整
-    "house cleaning Sandy Bay",
+    "commercial cleaning Hobart",
+    "office cleaning Hobart",
+    "airbnb cleaning Hobart",
+    "end of lease cleaning Hobart",
+    "bond cleaning Hobart",
+    "strata cleaning Hobart",
+    
+    // Niche Keywords
+    "eco friendly office cleaning",
+    "chemical free cleaning Tasmania",
+    "bnb turnover service Hobart",
+    "holiday rental cleaning",
+    "medical centre cleaning Hobart",
+    "gym cleaning Hobart",
+    
+    // Locations (Keep existing)
+    "cleaning service Sandy Bay",
     "cleaning service Kingston",
-    "house cleaning Blackmans Bay",
-    "cleaning service Battery Point",
-    "house cleaning Glenorchy",
+    "cleaning service CBD",
+    "cleaning service North Hobart",
+    "cleaning service Glenorchy",
     "cleaning service Moonah",
-    "house cleaning Bellerive",
+    "cleaning service Bellerive",
     "cleaning service Howrah",
-    "house cleaning Lindisfarne",
-    "cleaning service New Town",
-    "house cleaning South Hobart",
-    "cleaning service Taroona",
-    "house cleaning Rosny",
-    "cleaning service Clarence",
+    "cleaning service Lindisfarne",
+    "cleaning service Rosny",
   ],
   authors: [{ name: "NaturePure Cleaning" }],
   creator: "NaturePure Cleaning",
@@ -51,8 +51,8 @@ export const metadata: Metadata = {
     canonical: "https://naturepurecleaning.com.au",
   },
   openGraph: {
-    title: "NaturePure Cleaning | Chemical-Free House Cleaning Hobart",
-    description: "Professional chemical-free house cleaning in Hobart. Safe for kids, pets & allergies. Call 0478 759 693 for a free quote!",
+    title: "NaturePure Cleaning | Hobart's Premium Cleaning Agency",
+    description: "Office, Airbnb & Home Cleaning in Hobart. Book your professional clean today.",
     url: "https://naturepurecleaning.com.au",
     siteName: "NaturePure Cleaning",
     locale: "en_AU",
@@ -60,8 +60,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "NaturePure Cleaning | Chemical-Free House Cleaning Hobart",
-    description: "Professional chemical-free house cleaning in Hobart. Safe for kids, pets & allergies.",
+    title: "NaturePure Cleaning | Hobart Commercial & House Cleaning",
+    description: "Professional cleaning for Offices, Airbnbs & Homes in Hobart.",
   },
   robots: {
     index: true,
@@ -74,20 +74,16 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    // 你需要在 Google Search Console 验证后添加这个
-    // google: "your-google-verification-code",
-  },
 };
 
-// JSON-LD 结构化数据 - 帮助 Google 理解你的业务
+// JSON-LD 结构化数据 - Updated for Agency Model
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": "https://naturepurecleaning.com.au",
   name: "NaturePure Cleaning",
   image: "https://naturepurecleaning.com.au/images/logo.png",
-  description: "Professional chemical-free house cleaning service in Hobart, Tasmania. We use only water and premium microfibre for a healthier clean.",
+  description: "Hobart's leading cleaning agency for Commercial, Airbnb, and Residential properties. Professional, insured, and eco-friendly.",
   url: "https://naturepurecleaning.com.au",
   telephone: "+61478759693",
   address: {
@@ -114,12 +110,11 @@ const jsonLd = {
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "08:00",
-      closes: "17:00",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: "07:00",
+      closes: "20:00",
     },
   ],
-  sameAs: [],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Cleaning Services",
@@ -128,24 +123,32 @@ const jsonLd = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Weekly House Cleaning",
-          description: "Regular weekly chemical-free house cleaning service",
+          name: "Commercial & Office Cleaning",
+          description: "Regular office maintenance, desk sanitizing, and common area cleaning",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Fortnightly House Cleaning",
-          description: "Fortnightly chemical-free house cleaning service",
+          name: "Airbnb & Holiday Rental Cleaning",
+          description: "Full turnover service including linen change and amenities restocking",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Monthly House Cleaning",
-          description: "Monthly chemical-free house cleaning service",
+          name: "End of Lease Cleaning",
+          description: "Bond-back guarantee cleaning for tenants and property managers",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Regular House Cleaning",
+          description: "Weekly or fortnightly home maintenance cleaning",
         },
       },
     ],
@@ -166,8 +169,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Header />
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );

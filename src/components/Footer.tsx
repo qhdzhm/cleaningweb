@@ -25,7 +25,7 @@ export default function Footer() {
               </svg>
               <span>Fully Insured</span>
               <span className="mx-2">•</span>
-              <span>ABN: XX XXX XXX XXX</span>
+              <span>ABN: 89 629 311 900</span>
             </div>
           </div>
 

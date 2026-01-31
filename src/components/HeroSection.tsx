@@ -20,21 +20,21 @@ export default function HeroSection() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 mb-6 leading-tight">
-              <span className="block">Regular Home</span>
+              <span className="block">Premium Commercial</span>
               <span className="block bg-gradient-to-r from-teal-600 via-cyan-600 to-teal-600 bg-clip-text text-transparent">
-                Cleaning Service
+                & Home Cleaning
               </span>
             </h1>
 
             <p className="text-xl text-slate-600 mb-4">
-              Keep your home consistently clean and fresh with our reliable weekly, 
-              fortnightly, or monthly cleaning service.
+              Hobart's most trusted agency for Office, Airbnb, and Residential cleaning.
+              Tech-enabled reliability with a human touch.
             </p>
             
             <p className="text-lg text-slate-500 mb-8">
-              We use only water and premium microfibre — no harsh chemicals.
+              We use eco-friendly products and professional-grade equipment.
               <br />
-              <span className="text-teal-600 font-medium">Safe for your family. Better for the planet.</span>
+              <span className="text-teal-600 font-medium">Safe for workspaces. Perfect for homes.</span>
             </p>
 
             {/* Trust Indicators */}
@@ -49,13 +49,13 @@ export default function HeroSection() {
                 <svg className="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                 </svg>
-                <span>Same Cleaner</span>
+                <span>Vetted Staff</span>
               </div>
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                 </svg>
-                <span>Local Team</span>
+                <span>5-Star Rated</span>
               </div>
             </div>
 

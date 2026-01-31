@@ -17,8 +17,8 @@ export default function Header() {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "#services", label: "What We Clean" },
-    { href: "#why-us", label: "Why Us" },
+    { href: "#services", label: "Services" },
+    { href: "#what-we-clean", label: "Checklist" },
     { href: "#contact", label: "Get Quote" },
   ];
 
