@@ -114,7 +114,7 @@ export default function AdminBookings() {
     tomorrow.setDate(tomorrow.getDate() + 1);
     
     // 判断是否需要自动勾选循环
-    const isRecurring = booking.frequency && ['weekly', 'fortnightly', 'monthly'].includes(booking.frequency);
+    const isRecurring = !!(booking.frequency && ['weekly', 'fortnightly', 'monthly'].includes(booking.frequency));
     
     setAssignForm({
       cleanerName: "",
