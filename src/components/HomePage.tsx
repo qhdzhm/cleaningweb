@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import {
   ArrowRight,
@@ -31,6 +32,8 @@ import {
   type Icon,
 } from "@phosphor-icons/react";
 import { supabase, type Booking } from "@/lib/supabase";
+import { FAQS } from "@/lib/faq";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 import {
   describeExtras,
   estimatePrice,
@@ -55,19 +58,17 @@ const SERVICE_OPTIONS = [
 
 type ServiceValue = (typeof SERVICE_OPTIONS)[number]["value"];
 
+// Each card links to its own landing page — the homepage alone can't rank for
+// every service, and these are the only internal links those pages get.
 const SERVICE_CARDS = [
-  { title: "Home cleaning", image: "/images/service-home.webp", icon: HouseLine },
-  { title: "Commercial & office", image: "/images/service-commercial.webp", icon: Buildings },
-  { title: "Airbnb & end of lease", image: "/images/service-lease.webp", icon: Sparkle },
+  { title: "Home cleaning", href: "/house-cleaning-hobart", image: "/images/service-home.webp", icon: HouseLine },
+  { title: "Commercial & office", href: "/commercial-cleaning-hobart", image: "/images/service-commercial.webp", icon: Buildings },
+  { title: "Airbnb turnover", href: "/airbnb-cleaning-hobart", image: "/images/service-lease.webp", icon: Sparkle },
 ];
 
 const AREAS = ["Hobart", "Sandy Bay", "Glenorchy", "Kingston", "Moonah", "New Town", "Bellerive", "Howrah", "Lindisfarne"];
 
 const GOOGLE_REVIEW_URL = "https://g.page/r/CZKCYhr_fkF3EBM/review";
-
-// Calls route to the AI receptionist, not a mobile, so nothing gets missed.
-const PHONE_DISPLAY = "(03) 6155 4192";
-const PHONE_HREF = "tel:+61361554192";
 
 /**
  * Real Google reviews, trimmed for length. Excerpts only — wording is verbatim
@@ -364,8 +365,8 @@ export default function HomePage() {
             <a href="#top">Home</a>
             <a href="#services">Services</a>
             <a href="#what-we-clean">Checklist</a>
-            <a href="#why-us">Why us</a>
             <a href="#reviews">Reviews</a>
+            <Link href="/blog">Advice</Link>
             <a href="#faq">FAQ</a>
             <a href="#contact">Contact</a>
           </nav>
@@ -376,9 +377,10 @@ export default function HomePage() {
         </div>
         {menuOpen && (
           <nav className="mobile-nav" aria-label="Mobile navigation">
-            {[["Home", "top"], ["Services", "services"], ["Checklist", "what-we-clean"], ["Why us", "why-us"], ["Reviews", "reviews"], ["FAQ", "faq"], ["Contact", "contact"]].map(([label, id]) => (
+            {[["Home", "top"], ["Services", "services"], ["Checklist", "what-we-clean"], ["Reviews", "reviews"], ["FAQ", "faq"], ["Contact", "contact"]].map(([label, id]) => (
               <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>
             ))}
+            <Link href="/blog" onClick={() => setMenuOpen(false)}>Advice</Link>
             <a href={PHONE_HREF}>Call {PHONE_DISPLAY}</a>
           </nav>
         )}
@@ -583,14 +585,18 @@ export default function HomePage() {
             <div className="eyebrow"><Leaf weight="fill" />Our services</div>
             <h2 className="section-title">Professional cleaning for every space.</h2>
             <div className="services-grid">
-              {SERVICE_CARDS.map(({ title, image, icon: Icon }) => (
-                <a href="#quote" className="service-item" key={title}>
+              {SERVICE_CARDS.map(({ title, href, image, icon: Icon }) => (
+                <Link href={href} className="service-item" key={title}>
                   <div className="service-img"><Image src={image} alt={title} width={800} height={500} /></div>
                   <div className="service-icon"><Icon weight="duotone" /></div>
                   <div className="service-body"><span>{title}</span><ArrowRight /></div>
-                </a>
+                </Link>
               ))}
             </div>
+            <p className="services-more">
+              Moving out? See our{" "}
+              <Link href="/end-of-lease-cleaning-hobart">end of lease cleaning in Hobart</Link>.
+            </p>
           </div>
         </section>
 
@@ -716,30 +722,12 @@ export default function HomePage() {
               <h2>Common questions</h2>
             </div>
             <div className="faq-list">
-              <details>
-                <summary>How much does cleaning cost?<CaretDown /></summary>
-                <p>Use the quote form at the top — a standard home clean gives you an instant price range. Bond cleans, Airbnb turnovers and commercial sites are quoted individually.</p>
-              </details>
-              <details>
-                <summary>Do you really use no chemicals?<CaretDown /></summary>
-                <p>For everyday cleaning we use only water and premium microfibre. It&apos;s safer for kids, pets and staff, and it works.</p>
-              </details>
-              <details>
-                <summary>Are you insured?<CaretDown /></summary>
-                <p>Yes — we&apos;re fully insured and every cleaner is police checked before they set foot in your space.</p>
-              </details>
-              <details>
-                <summary>What areas do you service?<CaretDown /></summary>
-                <p>Hobart and surrounding suburbs, including Sandy Bay, Glenorchy, Kingston, Moonah, Bellerive and Howrah. Not sure? Just ask.</p>
-              </details>
-              <details>
-                <summary>Do I need to be home?<CaretDown /></summary>
-                <p>No. Many clients give us access instructions and come home to a clean space.</p>
-              </details>
-              <details>
-                <summary>What if I&apos;m not happy?<CaretDown /></summary>
-                <p>Tell us within 24 hours and we&apos;ll come back and put it right at no extra cost.</p>
-              </details>
+              {FAQS.map((faq) => (
+                <details key={faq.q}>
+                  <summary>{faq.q}<CaretDown /></summary>
+                  <p>{faq.a}</p>
+                </details>
+              ))}
             </div>
           </div>
         </section>

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
+import { faqJsonLd } from "@/lib/faq";
+import { PHONE_E164 } from "@/lib/contact";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
     apple: "/icon.svg",
   },
   title: "NaturePure Cleaning | Hobart Commercial, Airbnb & House Cleaning",
-  description: "Premier cleaning agency in Hobart. We specialize in Office Cleaning, Airbnb Turnover, End of Lease, and Regular Home Cleaning. Tech-enabled, eco-friendly, and reliable.",
+  description: "Chemical-free cleaning across Hobart — homes, offices, Airbnb turnovers and end of lease. Fully insured, police checked. Get an instant price in 30 seconds.",
   keywords: [
     // Core Services
     "house cleaning Hobart",
@@ -90,7 +92,7 @@ const jsonLd = {
   image: "https://naturepurecleaning.com.au/images/logo.png",
   description: "Hobart's leading cleaning agency for Commercial, Airbnb, and Residential properties. Professional, insured, and eco-friendly.",
   url: "https://naturepurecleaning.com.au",
-  telephone: "+61361554192",
+  telephone: PHONE_E164,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Hobart",
@@ -166,11 +168,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-AU">
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
       </head>
       <body className={manrope.variable}>
