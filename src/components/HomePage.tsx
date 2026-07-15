@@ -63,10 +63,11 @@ const SERVICE_CARDS = [
 
 const AREAS = ["Hobart", "Sandy Bay", "Glenorchy", "Kingston", "Moonah", "New Town", "Bellerive", "Howrah", "Lindisfarne"];
 
-// TODO: paste the "write a review" link from the Google Business Profile
-// (Google Business Profile → Ask for reviews → copy link). Until then the
-// button below stays hidden rather than shipping a dead link.
-const GOOGLE_REVIEW_URL = "";
+const GOOGLE_REVIEW_URL = "https://g.page/r/CZKCYhr_fkF3EBM/review";
+
+// Calls route to the AI receptionist, not a mobile, so nothing gets missed.
+const PHONE_DISPLAY = "(03) 6155 4192";
+const PHONE_HREF = "tel:+61361554192";
 
 /**
  * Real Google reviews, trimmed for length. Excerpts only — wording is verbatim
@@ -368,7 +369,7 @@ export default function HomePage() {
             <a href="#faq">FAQ</a>
             <a href="#contact">Contact</a>
           </nav>
-          <a className="btn call-btn" href="tel:0478759693"><Phone weight="fill" />Call 0478 759 693</a>
+          <a className="btn call-btn" href={PHONE_HREF}><Phone weight="fill" />Call {PHONE_DISPLAY}</a>
           <button className="mobile-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
             {menuOpen ? <X size={26} /> : <List size={26} />}
           </button>
@@ -378,7 +379,7 @@ export default function HomePage() {
             {[["Home", "top"], ["Services", "services"], ["Checklist", "what-we-clean"], ["Why us", "why-us"], ["Reviews", "reviews"], ["FAQ", "faq"], ["Contact", "contact"]].map(([label, id]) => (
               <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>
             ))}
-            <a href="tel:0478759693">Call 0478 759 693</a>
+            <a href={PHONE_HREF}>Call {PHONE_DISPLAY}</a>
           </nav>
         )}
       </header>
@@ -399,7 +400,7 @@ export default function HomePage() {
               </div>
               <div className="hero-actions">
                 <a href="#quote" className="btn btn-primary">See my price<ArrowRight /></a>
-                <a href="tel:0478759693" className="btn"><Phone />Call 0478 759 693</a>
+                <a href={PHONE_HREF} className="btn"><Phone />Call {PHONE_DISPLAY}</a>
               </div>
             </div>
           </div>
@@ -570,7 +571,7 @@ export default function HomePage() {
                   )}
                 </div>
 
-                {error && <p className="form-error">Something went wrong. Please call 0478 759 693 instead.</p>}
+                {error && <p className="form-error">Something went wrong. Please call {PHONE_DISPLAY} instead.</p>}
                 {shows("contact") && <p className="privacy"><LockSimple />Your details are safe and never shared.</p>}
               </>
             )}
@@ -749,7 +750,7 @@ export default function HomePage() {
             <p>Get an instant price in 30 seconds, or call us and we&apos;ll sort it out on the phone.</p>
             <div className="footer-actions">
               <a href="#quote" className="btn btn-primary">See my price<ArrowRight /></a>
-              <a href="tel:0478759693" className="btn"><Phone weight="fill" />Call 0478 759 693</a>
+              <a href={PHONE_HREF} className="btn"><Phone weight="fill" />Call {PHONE_DISPLAY}</a>
             </div>
           </div>
           <div className="container footer-legal">

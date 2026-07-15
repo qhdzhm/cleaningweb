@@ -93,7 +93,7 @@ export async function generateInvoicePDF(bookingId: string) {
       <div class="company-name">NaturePure Cleaning</div>
       <div style="margin-top: 5px; color: #64748b;">Chemical-Free · Eco-Friendly</div>
       <div style="margin-top: 10px; font-size: 14px;">
-        Phone: 0478 759 693<br>
+        Phone: (03) 6155 4192<br>
         Email: info@naturepurecleaning.com.au
       </div>
     </div>

@@ -90,7 +90,7 @@ const jsonLd = {
   image: "https://naturepurecleaning.com.au/images/logo.png",
   description: "Hobart's leading cleaning agency for Commercial, Airbnb, and Residential properties. Professional, insured, and eco-friendly.",
   url: "https://naturepurecleaning.com.au",
-  telephone: "+61478759693",
+  telephone: "+61361554192",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Hobart",
