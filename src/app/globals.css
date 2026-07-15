@@ -88,8 +88,10 @@ html {
   font-family: var(--font-manrope), system-ui, sans-serif;
 }
 
-.site-shell a { color: inherit; text-decoration: none; }
-.site-shell button, .site-shell input, .site-shell select { font: inherit; }
+/* :where() keeps this at zero specificity so .btn / .btn-primary below can still
+   set their own colour on <a> elements. A plain `.site-shell a` would outrank them. */
+.site-shell :where(a) { color: inherit; text-decoration: none; }
+.site-shell :where(button, input, select) { font: inherit; }
 
 .container { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
 .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--green); font-size: 11px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
