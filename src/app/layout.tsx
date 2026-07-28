@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import { faqJsonLd } from "@/lib/faq";
-import { PHONE_E164 } from "@/lib/contact";
+import { PHONE_E164, SMS_E164 } from "@/lib/contact";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -93,6 +93,23 @@ const jsonLd = {
   description: "Hobart's leading cleaning agency for Commercial, Airbnb, and Residential properties. Professional, insured, and eco-friendly.",
   url: "https://naturepurecleaning.com.au",
   telephone: PHONE_E164,
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: PHONE_E164,
+      contactType: "customer service",
+      areaServed: "AU",
+      availableLanguage: "en",
+    },
+    {
+      // Mobile — the one that accepts SMS. The landline above cannot.
+      "@type": "ContactPoint",
+      telephone: SMS_E164,
+      contactType: "sales",
+      areaServed: "AU",
+      availableLanguage: "en",
+    },
+  ],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Hobart",

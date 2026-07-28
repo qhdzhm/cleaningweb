@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>NaturePure Cleaning — DL flyer (99 × 210mm)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===========================================================================
+   NaturePure Cleaning — letterbox DL flyer, print-ready artwork.
+
+   TRIM       99 × 210mm  (standard DL)
+   BLEED      3mm all round  ->  artwork page is 105 × 216mm
+   SAFE AREA  5mm inside trim -> keep text 8mm from the page edge
+
+   TO EXPORT: open in Chrome -> Ctrl+P -> Destination "Save as PDF",
+   Paper "Custom" is not offered, so instead set Margins = None and tick
+   "Background graphics", then confirm the PDF page reads 105 × 216mm.
+   Send that PDF to the printer with: 350gsm, matte laminate, 4/4 (full
+   colour both sides), 3mm bleed included, CMYK.
+
+   THINGS YOU MAY WANT TO CHANGE — all marked with  ### EDIT
+   =========================================================================== */
+
+:root{
+  --deep:#005b3d;   /* headings, dark bands   CMYK approx 90 / 30 / 85 / 30 */
+  --green:#007a50;  /* accents, ticks         CMYK approx 88 / 21 / 84 / 6  */
+  --sage:#eef6f0;
+  --mist:#f7faf7;
+  --ink:#123c2c;
+  --line:#dfe8e1;
+  --gold:#c79827;
+  --muted:#5d6d66;
+}
+
+@page{ size:105mm 216mm; margin:0; }
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+html,body{
+  font-family:"Manrope",-apple-system,"Segoe UI",system-ui,sans-serif;
+  color:var(--ink);
+  background:#7b8a83;                 /* screen only — shows the bleed edge */
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+
+.page{
+  position:relative;
+  width:105mm; height:216mm;
+  margin:0 auto 8mm;
+  background:#fff;
+  overflow:hidden;
+  display:flex; flex-direction:column;
+  page-break-after:always;
+}
+.page:last-child{ page-break-after:auto; }
+
+/* Safe-area guide. Screen only — never prints. */
+.guide{
+  position:absolute; inset:8mm; z-index:99;
+  border:0.3mm dashed rgba(255,0,0,.35);
+  pointer-events:none;
+}
+
+@media print{
+  html,body{ background:#fff; }
+  .page{ margin:0; }
+  .guide{ display:none; }
+  .screen-note{ display:none; }
+}
+
+.screen-note{
+  width:105mm; margin:6mm auto 3mm;
+  color:#fff; font-size:9pt; font-weight:700; line-height:1.5;
+}
+.screen-note span{ opacity:.75; font-weight:600; }
+
+/* ---------- shared bits ---------- */
+.pad{ padding-left:8mm; padding-right:8mm; }
+
+.band{
+  background:var(--deep); color:#fff;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+
+.mark{ display:flex; align-items:center; gap:2.6mm; }
+.mark svg{ width:8mm; height:8mm; fill:#fff; flex:none; }
+.mark .wordmark{ line-height:1; }
+.mark .wordmark b{ display:block; font-size:14pt; font-weight:800; letter-spacing:-.02em; }
+.mark .wordmark small{ display:block; margin-top:1mm; font-size:6pt; font-weight:700; letter-spacing:.28em; opacity:.85; }
+
+.tick{ display:inline-block; width:3mm; height:3mm; flex:none; }
+
+/* ---------- FRONT ---------- */
+.f-head{ padding:6mm 8mm; display:flex; align-items:center; justify-content:space-between; }
+.f-head .locale{ font-size:6.5pt; font-weight:800; letter-spacing:.2em; opacity:.8; text-align:right; }
+
+.f-photo{ position:relative; height:52mm; flex:none; background:var(--sage); }
+.f-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+.f-body{ flex:1; padding:7mm 8mm 0; display:flex; flex-direction:column; }
+
+h1{
+  font-size:25pt; font-weight:700; line-height:1.05; letter-spacing:-.045em;
+  color:var(--deep);
+}
+.f-sub{ margin-top:3.5mm; font-size:9pt; line-height:1.5; color:var(--muted); font-weight:500; }
+
+.offer{
+  margin-top:6mm; padding:4.5mm 5mm;
+  background:var(--sage); border:0.5mm dashed #a9c8b7; border-radius:1.5mm;
+  text-align:center;
+}
+.offer .big{ font-size:19pt; font-weight:800; letter-spacing:-.03em; color:var(--deep); line-height:1.05; }
+.offer .code{
+  display:inline-block; margin-top:2.5mm; padding:1.4mm 3.5mm;
+  background:var(--deep); color:#fff; border-radius:1mm;
+  font-size:7.5pt; font-weight:800; letter-spacing:.12em;
+}
+
+.f-price{
+  margin-top:5mm; padding-top:4mm; border-top:0.3mm solid var(--line);
+  font-size:9.5pt; font-weight:700; color:var(--ink); line-height:1.45;
+}
+.f-price b{ color:var(--green); font-size:12pt; }
+.f-price span{ display:block; margin-top:1mm; font-size:7.5pt; font-weight:600; color:var(--muted); }
+
+.trust{ margin-top:auto; padding:5mm 0 6mm; display:flex; justify-content:space-between; gap:2mm; }
+.trust div{ display:flex; align-items:center; gap:1.6mm; font-size:6.8pt; font-weight:800; color:var(--ink); }
+.trust svg{ fill:var(--green); }
+
+/* ---------- footer contact band (both sides) ---------- */
+.contact{ padding:6mm 8mm; display:flex; align-items:center; gap:5mm; }
+.contact .qr{
+  width:26mm; height:26mm; flex:none;
+  padding:1.5mm; background:#fff; border-radius:1.5mm;
+}
+.contact .qr svg{ width:100%; height:100%; display:block; }
+.contact .lines{ flex:1; min-width:0; }
+.contact .kicker{ font-size:7pt; font-weight:800; letter-spacing:.1em; opacity:.8; text-transform:uppercase; }
+.contact .headline{ margin-top:1.5mm; font-size:11pt; font-weight:800; letter-spacing:-.02em; line-height:1.2; }
+.contact .rows{ margin-top:3mm; display:grid; gap:1.6mm; }
+.contact .row{ display:flex; align-items:center; gap:2mm; font-size:8.5pt; font-weight:700; }
+.contact .row svg{ width:3.4mm; height:3.4mm; fill:#fff; opacity:.85; flex:none; }
+.contact .row em{ font-style:normal; font-weight:600; opacity:.75; font-size:7pt; }
+.contact .web{ margin-top:3mm; font-size:7.5pt; font-weight:700; opacity:.85; }
+
+/* ---------- BACK ---------- */
+.b-head{ padding:5.5mm 8mm; display:flex; align-items:baseline; justify-content:space-between; }
+.b-head h2{ font-size:11.5pt; font-weight:800; letter-spacing:-.02em; }
+.b-head span{ font-size:6.5pt; font-weight:700; letter-spacing:.18em; opacity:.8; }
+
+.b-body{ flex:1; padding:6mm 8mm 0; display:flex; flex-direction:column; }
+
+.checks{ display:grid; grid-template-columns:1fr 1fr; gap:4mm 5mm; }
+.checks .col h3{
+  font-size:8pt; font-weight:800; color:var(--deep); letter-spacing:.04em;
+  text-transform:uppercase; padding-bottom:1.6mm; margin-bottom:2mm;
+  border-bottom:0.3mm solid var(--line);
+}
+.checks .col.wide{ grid-column:1 / -1; }
+.checks ul{ list-style:none; display:grid; gap:1.4mm; }
+.checks .col.wide ul{ grid-template-columns:1fr 1fr; gap:1.4mm 5mm; }
+.checks li{ position:relative; padding-left:3.4mm; font-size:7.5pt; line-height:1.35; color:#3f4f47; font-weight:600; }
+.checks li::before{
+  content:""; position:absolute; left:0; top:1.1mm;
+  width:1.6mm; height:1.6mm; border-radius:50%; background:var(--green);
+}
+
+.ba{ margin-top:5mm; position:relative; height:34mm; overflow:hidden; border-radius:1.5mm; background:var(--sage); }
+.ba img{ width:100%; height:100%; object-fit:cover; display:block; }
+.ba .labels{ position:absolute; left:0; right:0; bottom:2mm; display:flex; justify-content:space-between; padding:0 2.5mm; }
+.ba .labels span{
+  padding:1.2mm 2.4mm; border-radius:1mm; background:rgba(18,60,44,.9);
+  color:#fff; font-size:6.5pt; font-weight:800; letter-spacing:.06em;
+}
+.ba .labels span:last-child{ background:var(--green); }
+
+.quote{ margin-top:5mm; padding:4mm 4.5mm; background:var(--mist); border-left:0.9mm solid var(--green); border-radius:0 1.5mm 1.5mm 0; }
+.quote .stars{ color:var(--gold); font-size:8pt; letter-spacing:1.6px; }
+.quote blockquote{ margin-top:1.8mm; font-size:8pt; line-height:1.5; color:#3f4f47; font-weight:600; }
+.quote cite{ display:block; margin-top:2.2mm; font-size:6.8pt; font-weight:800; font-style:normal; color:var(--green); }
+
+.why{ margin-top:5mm; }
+.why h3{ font-size:8pt; font-weight:800; color:var(--deep); letter-spacing:.04em; text-transform:uppercase; }
+.why p{ margin-top:1.8mm; font-size:7.8pt; line-height:1.55; color:var(--muted); font-weight:500; }
+
+.suburbs{ margin-top:auto; padding:4.5mm 0 5mm; }
+.suburbs h3{ font-size:6.5pt; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--green); }
+.suburbs p{ margin-top:1.8mm; font-size:7.5pt; line-height:1.5; color:#3f4f47; font-weight:700; }
+
+.fineprint{
+  padding:3mm 8mm 4mm; background:#00472f; color:rgba(255,255,255,.62);
+  font-size:5.8pt; line-height:1.5; font-weight:600; text-align:center;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+</style>
+</head>
+<body>
+
+<p class="screen-note">
+  FRONT — 105 × 216mm artwork (99 × 210mm trim + 3mm bleed).
+  <span>Red dashed line = safe area, screen only. Print with margins “None” and “Background graphics” ticked.</span>
+</p>
+
+<!-- ============================ FRONT ============================ -->
+<section class="page">
+  <div class="guide"></div>
+
+  <header class="band f-head">
+    <div class="mark">
+      <svg viewBox="0 0 256 256" aria-hidden="true"><path d="M223.45,40.07a8,8,0,0,0-7.52-7.52C139.8,28.08,78.82,51,52.82,94a87.09,87.09,0,0,0-12.76,49A101.72,101.72,0,0,0,46.7,175.2a4,4,0,0,0,6.61,1.43l85-86.3a8,8,0,0,1,11.32,11.32L56.74,195.94,42.55,210.13a8.2,8.2,0,0,0-.6,11.1,8,8,0,0,0,11.71.43l16.79-16.79c14.14,6.84,28.41,10.57,42.56,11.07q1.67.06,3.33.06A86.93,86.93,0,0,0,162,203.18C205,177.18,227.93,116.21,223.45,40.07Z"/></svg>
+      <span class="wordmark"><b>NaturePure</b><small>CLEANING</small></span>
+    </div>
+    <div class="locale">HOBART<br>TASMANIA</div>
+  </header>
+
+  <div class="f-photo">
+    <!-- ### EDIT — swap for a photo of you/your cleaner in uniform if you have one.
+         A real local face outperforms an interior shot on letterbox material. -->
+    <img src="../public/images/hero.webp" alt="">
+  </div>
+
+  <div class="f-body">
+    <h1>A cleaner home,<br>without the<br>chemicals.</h1>
+    <p class="f-sub">
+      Just pure water and premium microfibre. Nothing to breathe in,
+      nothing left behind — safe around kids and pets.
+    </p>
+
+    <!-- ### EDIT — this must match the banner on the website. The site currently
+         says "20% off your first clean". If you change one, change both. -->
+    <div class="offer">
+      <div class="big">20% OFF<br>YOUR FIRST CLEAN</div>
+      <div class="code">QUOTE CODE &nbsp;HOME20</div>
+    </div>
+
+    <p class="f-price">
+      Regular home cleaning from <b>$115</b> a fortnight
+      <span>Based on 2 bedrooms, 1 bathroom · fortnightly rate</span>
+    </p>
+
+    <div class="trust">
+      <div><svg class="tick" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"/></svg>Fully insured</div>
+      <div><svg class="tick" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"/></svg>Police checked</div>
+      <div><svg class="tick" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"/></svg>Locally owned</div>
+    </div>
+  </div>
+
+  <footer class="band contact">
+    <div class="qr">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45" shape-rendering="crispEdges"><path fill="#ffffff" d="M0 0h45v45H0z"/><path stroke="#005b3d" d="M2 2.5h7m1 0h1m2 0h3m2 0h1m2 0h1m2 0h1m2 0h1m1 0h1m3 0h2m1 0h7M2 3.5h1m5 0h1m3 0h2m1 0h3m2 0h1m1 0h1m2 0h2m1 0h4m1 0h2m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m3 0h4m1 0h2m7 0h3m1 0h1m2 0h2m1 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h3m1 0h1m4 0h1m1 0h2m1 0h1m2 0h3m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m3 0h2m2 0h1m4 0h1m1 0h1m1 0h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m2 0h3m2 0h4m1 0h1m1 0h1m1 0h2m2 0h2m1 0h2m2 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M11 9.5h2m4 0h1m2 0h1m7 0h1m2 0h1m2 0h1M4 10.5h1m1 0h3m1 0h11m1 0h1m2 0h1m1 0h2m1 0h2m1 0h3m3 0h1m2 0h1M3 11.5h1m1 0h1m3 0h3m1 0h1m1 0h3m2 0h1m1 0h3m2 0h1m2 0h1m3 0h1m1 0h2m1 0h2m1 0h1M5 12.5h1m2 0h3m1 0h1m3 0h3m1 0h1m9 0h1m1 0h1m3 0h2m2 0h3M6 13.5h2m4 0h2m1 0h1m1 0h1m1 0h2m3 0h2m1 0h1m3 0h2m1 0h1m3 0h1m3 0h1M2 14.5h1m5 0h1m1 0h3m2 0h1m4 0h1m1 0h1m1 0h3m1 0h1m2 0h1m1 0h2m1 0h1m2 0h1m1 0h1M3 15.5h3m1 0h1m1 0h3m1 0h1m2 0h1m2 0h2m3 0h1m3 0h2m3 0h2m6 0h2M4 16.5h1m1 0h1m1 0h1m2 0h2m3 0h4m2 0h2m3 0h1m5 0h2m1 0h2m1 0h2m1 0h1M2 17.5h1m1 0h2m3 0h2m2 0h2m1 0h1m1 0h3m2 0h2m2 0h3m1 0h2m1 0h1m1 0h2M3 18.5h4m1 0h1m2 0h1m1 0h5m6 0h1m1 0h1m4 0h1m1 0h2m1 0h2m1 0h1m1 0h1M3 19.5h1m1 0h2m2 0h2m2 0h1m2 0h2m2 0h1m3 0h3m3 0h1m3 0h1m1 0h1m3 0h1m1 0h1M2 20.5h2m1 0h2m1 0h1m3 0h1m1 0h4m2 0h1m1 0h1m1 0h1m2 0h2m2 0h1m2 0h2m2 0h1m2 0h2M3 21.5h1m5 0h1m2 0h1m1 0h1m1 0h1m3 0h4m1 0h1m2 0h1m6 0h1m1 0h1m3 0h1M3 22.5h1m1 0h1m1 0h3m1 0h1m1 0h2m2 0h3m2 0h2m1 0h1m4 0h1m3 0h3m1 0h1m3 0h1M4 23.5h4m3 0h1m1 0h1m3 0h1m2 0h1m1 0h5m3 0h2m2 0h3m1 0h1m2 0h2M3 24.5h10m2 0h1m1 0h2m3 0h2m1 0h1m1 0h2m1 0h1m1 0h1m2 0h1m4 0h3M2 25.5h3m2 0h1m1 0h2m1 0h1m2 0h3m3 0h1m1 0h1m1 0h3m2 0h4m2 0h1m1 0h1m3 0h1M2 26.5h1m2 0h1m2 0h1m1 0h2m1 0h3m1 0h1m2 0h3m1 0h2m2 0h2m1 0h1m2 0h3m4 0h1M2 27.5h2m1 0h1m3 0h2m1 0h1m2 0h1m1 0h2m3 0h2m6 0h1m1 0h1m3 0h2m3 0h2M6 28.5h4m1 0h3m1 0h2m4 0h2m2 0h2m1 0h1m2 0h1m3 0h1m1 0h2m1 0h3M5 29.5h3m7 0h1m1 0h8m1 0h6m2 0h3M2 30.5h2m1 0h4m1 0h1m3 0h1m2 0h1m2 0h1m3 0h1m2 0h1m2 0h2m1 0h1m1 0h1m3 0h1m1 0h2M5 31.5h3m1 0h3m4 0h2m1 0h1m2 0h6m1 0h3m1 0h1m1 0h1m3 0h1m1 0h2M2 32.5h1m1 0h5m4 0h2m2 0h4m1 0h2m1 0h1m1 0h1m1 0h2m6 0h2m2 0h2M3 33.5h1m1 0h3m3 0h3m4 0h4m4 0h2m2 0h2m1 0h1m1 0h2m5 0h1M2 34.5h1m1 0h6m4 0h2m4 0h1m2 0h3m1 0h1m1 0h3m2 0h5m2 0h1M10 35.5h3m1 0h2m1 0h2m2 0h1m2 0h1m1 0h3m2 0h1m2 0h1m3 0h2m2 0h1M2 36.5h7m2 0h2m1 0h1m1 0h4m3 0h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m1 0h5M2 37.5h1m5 0h1m1 0h1m3 0h3m2 0h2m1 0h3m4 0h4m1 0h1m3 0h1M2 38.5h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h1m4 0h1m1 0h1m3 0h1m1 0h2m1 0h1m1 0h6m1 0h2M2 39.5h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h2m2 0h1m1 0h3m1 0h4m2 0h2m1 0h2m2 0h1m2 0h2M2 40.5h1m1 0h3m1 0h1m1 0h2m1 0h1m1 0h2m2 0h1m1 0h2m2 0h1m2 0h1m5 0h1m2 0h4m1 0h1M2 41.5h1m5 0h1m4 0h1m1 0h1m1 0h1m2 0h5m1 0h1m3 0h2m1 0h2m2 0h1m1 0h1m1 0h1M2 42.5h7m3 0h1m2 0h2m1 0h1m1 0h1m3 0h1m1 0h1m1 0h1m2 0h1m1 0h6m1 0h3"/></svg>
+    </div>
+    <div class="lines">
+      <div class="kicker">Scan me</div>
+      <div class="headline">See your price<br>in 30 seconds</div>
+      <div class="rows">
+        <div class="row">
+          <svg viewBox="0 0 256 256"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46Z"/></svg>
+          (03) 6155 4192 <em>&nbsp;call</em>
+        </div>
+        <div class="row">
+          <svg viewBox="0 0 256 256"><path d="M216,48H40A16,16,0,0,0,24,64V224a15.85,15.85,0,0,0,9.24,14.5A16.13,16.13,0,0,0,40,240a15.89,15.89,0,0,0,10.25-3.78l.09-.07L83,208H216a16,16,0,0,0,16-16V64A16,16,0,0,0,216,48Z"/></svg>
+          0478 759 693 <em>&nbsp;text us</em>
+        </div>
+      </div>
+      <div class="web">naturepurecleaning.com.au</div>
+    </div>
+  </footer>
+</section>
+
+<p class="screen-note">BACK</p>
+
+<!-- ============================ BACK ============================ -->
+<section class="page">
+  <div class="guide"></div>
+
+  <header class="band b-head">
+    <h2>What&rsquo;s in every clean</h2>
+    <span>NATUREPURE</span>
+  </header>
+
+  <div class="b-body">
+    <div class="checks">
+      <div class="col">
+        <h3>Kitchen</h3>
+        <ul>
+          <li>Benchtops &amp; splashback wiped</li>
+          <li>Stovetop cleaned</li>
+          <li>Sink &amp; tapware polished</li>
+          <li>Exterior of appliances</li>
+          <li>Floor vacuumed &amp; mopped</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Bathroom</h3>
+        <ul>
+          <li>Shower, bath &amp; screen descaled</li>
+          <li>Toilet sanitised inside &amp; out</li>
+          <li>Vanity &amp; mirror polished</li>
+          <li>Tapware shined</li>
+          <li>Floor mopped</li>
+        </ul>
+      </div>
+      <div class="col wide">
+        <h3>Living &amp; bedrooms</h3>
+        <ul>
+          <li>All surfaces dusted</li>
+          <li>Cobwebs removed</li>
+          <li>Mirrors polished</li>
+          <li>Carpets vacuumed</li>
+          <li>Hard floors mopped</li>
+          <li>Skirting boards</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ba">
+      <img src="../public/images/before-after-cooktop.webp" alt="">
+      <div class="labels"><span>BEFORE</span><span>AFTER</span></div>
+    </div>
+
+    <!-- ### EDIT — verbatim excerpt from a real Google review. Australian Consumer
+         Law prohibits invented testimonials, so only ever paste real ones here. -->
+    <div class="quote">
+      <div class="stars">★★★★★</div>
+      <blockquote>
+        &ldquo;Everything was done to a high standard &mdash; bathrooms spotless,
+        floors looking great, and all the little details were taken care of.&rdquo;
+      </blockquote>
+      <cite>&mdash; Google review, Hobart</cite>
+    </div>
+
+    <div class="why">
+      <h3>Why no chemicals?</h3>
+      <p>
+        Water and premium microfibre lift dirt mechanically, instead of dissolving it
+        in something your kids and pets breathe afterwards. No fumes, no residue,
+        no hospital smell &mdash; just a house that&rsquo;s actually clean.
+      </p>
+    </div>
+
+    <div class="suburbs">
+      <h3>Where we clean</h3>
+      <p>
+        Hobart &middot; Sandy Bay &middot; Battery Point &middot; Taroona &middot; Kingston &middot;
+        New Town &middot; Moonah &middot; Glenorchy &middot; Bellerive &middot; Howrah &middot; Lindisfarne
+      </p>
+    </div>
+  </div>
+
+  <footer class="band contact">
+    <div class="qr">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45" shape-rendering="crispEdges"><path fill="#ffffff" d="M0 0h45v45H0z"/><path stroke="#005b3d" d="M2 2.5h7m1 0h1m2 0h3m2 0h1m2 0h1m2 0h1m2 0h1m1 0h1m3 0h2m1 0h7M2 3.5h1m5 0h1m3 0h2m1 0h3m2 0h1m1 0h1m2 0h2m1 0h4m1 0h2m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m3 0h4m1 0h2m7 0h3m1 0h1m2 0h2m1 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h3m1 0h1m4 0h1m1 0h2m1 0h1m2 0h3m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m3 0h2m2 0h1m4 0h1m1 0h1m1 0h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m2 0h3m2 0h4m1 0h1m1 0h1m1 0h2m2 0h2m1 0h2m2 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M11 9.5h2m4 0h1m2 0h1m7 0h1m2 0h1m2 0h1M4 10.5h1m1 0h3m1 0h11m1 0h1m2 0h1m1 0h2m1 0h2m1 0h3m3 0h1m2 0h1M3 11.5h1m1 0h1m3 0h3m1 0h1m1 0h3m2 0h1m1 0h3m2 0h1m2 0h1m3 0h1m1 0h2m1 0h2m1 0h1M5 12.5h1m2 0h3m1 0h1m3 0h3m1 0h1m9 0h1m1 0h1m3 0h2m2 0h3M6 13.5h2m4 0h2m1 0h1m1 0h1m1 0h2m3 0h2m1 0h1m3 0h2m1 0h1m3 0h1m3 0h1M2 14.5h1m5 0h1m1 0h3m2 0h1m4 0h1m1 0h1m1 0h3m1 0h1m2 0h1m1 0h2m1 0h1m2 0h1m1 0h1M3 15.5h3m1 0h1m1 0h3m1 0h1m2 0h1m2 0h2m3 0h1m3 0h2m3 0h2m6 0h2M4 16.5h1m1 0h1m1 0h1m2 0h2m3 0h4m2 0h2m3 0h1m5 0h2m1 0h2m1 0h2m1 0h1M2 17.5h1m1 0h2m3 0h2m2 0h2m1 0h1m1 0h3m2 0h2m2 0h3m1 0h2m1 0h1m1 0h2M3 18.5h4m1 0h1m2 0h1m1 0h5m6 0h1m1 0h1m4 0h1m1 0h2m1 0h2m1 0h1m1 0h1M3 19.5h1m1 0h2m2 0h2m2 0h1m2 0h2m2 0h1m3 0h3m3 0h1m3 0h1m1 0h1m3 0h1m1 0h1M2 20.5h2m1 0h2m1 0h1m3 0h1m1 0h4m2 0h1m1 0h1m1 0h1m2 0h2m2 0h1m2 0h2m2 0h1m2 0h2M3 21.5h1m5 0h1m2 0h1m1 0h1m1 0h1m3 0h4m1 0h1m2 0h1m6 0h1m1 0h1m3 0h1M3 22.5h1m1 0h1m1 0h3m1 0h1m1 0h2m2 0h3m2 0h2m1 0h1m4 0h1m3 0h3m1 0h1m3 0h1M4 23.5h4m3 0h1m1 0h1m3 0h1m2 0h1m1 0h5m3 0h2m2 0h3m1 0h1m2 0h2M3 24.5h10m2 0h1m1 0h2m3 0h2m1 0h1m1 0h2m1 0h1m1 0h1m2 0h1m4 0h3M2 25.5h3m2 0h1m1 0h2m1 0h1m2 0h3m3 0h1m1 0h1m1 0h3m2 0h4m2 0h1m1 0h1m3 0h1M2 26.5h1m2 0h1m2 0h1m1 0h2m1 0h3m1 0h1m2 0h3m1 0h2m2 0h2m1 0h1m2 0h3m4 0h1M2 27.5h2m1 0h1m3 0h2m1 0h1m2 0h1m1 0h2m3 0h2m6 0h1m1 0h1m3 0h2m3 0h2M6 28.5h4m1 0h3m1 0h2m4 0h2m2 0h2m1 0h1m2 0h1m3 0h1m1 0h2m1 0h3M5 29.5h3m7 0h1m1 0h8m1 0h6m2 0h3M2 30.5h2m1 0h4m1 0h1m3 0h1m2 0h1m2 0h1m3 0h1m2 0h1m2 0h2m1 0h1m1 0h1m3 0h1m1 0h2M5 31.5h3m1 0h3m4 0h2m1 0h1m2 0h6m1 0h3m1 0h1m1 0h1m3 0h1m1 0h2M2 32.5h1m1 0h5m4 0h2m2 0h4m1 0h2m1 0h1m1 0h1m1 0h2m6 0h2m2 0h2M3 33.5h1m1 0h3m3 0h3m4 0h4m4 0h2m2 0h2m1 0h1m1 0h2m5 0h1M2 34.5h1m1 0h6m4 0h2m4 0h1m2 0h3m1 0h1m1 0h3m2 0h5m2 0h1M10 35.5h3m1 0h2m1 0h2m2 0h1m2 0h1m1 0h3m2 0h1m2 0h1m3 0h2m2 0h1M2 36.5h7m2 0h2m1 0h1m1 0h4m3 0h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m1 0h5M2 37.5h1m5 0h1m1 0h1m3 0h3m2 0h2m1 0h3m4 0h4m1 0h1m3 0h1M2 38.5h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h1m4 0h1m1 0h1m3 0h1m1 0h2m1 0h1m1 0h6m1 0h2M2 39.5h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h2m2 0h1m1 0h3m1 0h4m2 0h2m1 0h2m2 0h1m2 0h2M2 40.5h1m1 0h3m1 0h1m1 0h2m1 0h1m1 0h2m2 0h1m1 0h2m2 0h1m2 0h1m5 0h1m2 0h4m1 0h1M2 41.5h1m5 0h1m4 0h1m1 0h1m1 0h1m2 0h5m1 0h1m3 0h2m1 0h2m2 0h1m1 0h1m1 0h1M2 42.5h7m3 0h1m2 0h2m1 0h1m1 0h1m3 0h1m1 0h1m1 0h1m2 0h1m1 0h6m1 0h3"/></svg>
+    </div>
+    <div class="lines">
+      <div class="kicker">Book in 30 seconds</div>
+      <div class="headline">Instant price.<br>No callback needed.</div>
+      <div class="rows">
+        <div class="row">
+          <svg viewBox="0 0 256 256"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46Z"/></svg>
+          (03) 6155 4192 <em>&nbsp;call</em>
+        </div>
+        <div class="row">
+          <svg viewBox="0 0 256 256"><path d="M216,48H40A16,16,0,0,0,24,64V224a15.85,15.85,0,0,0,9.24,14.5A16.13,16.13,0,0,0,40,240a15.89,15.89,0,0,0,10.25-3.78l.09-.07L83,208H216a16,16,0,0,0,16-16V64A16,16,0,0,0,216,48Z"/></svg>
+          0478 759 693 <em>&nbsp;text us</em>
+        </div>
+      </div>
+      <div class="web">naturepurecleaning.com.au</div>
+    </div>
+  </footer>
+
+  <!-- ### EDIT — set a real expiry date. An offer with no deadline gets filed
+       under "later", which is the same as never. -->
+  <div class="fineprint">
+    20% off applies to your first clean, new customers only. Quote code HOME20.
+    Offer ends 30 September 2026. &nbsp;·&nbsp; NaturePure Cleaning · ABN 89 629 311 900 · Fully insured · Hobart, Tasmania
+  </div>
+</section>
+
+</body>
+</html>

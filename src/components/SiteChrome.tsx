@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
+import { PHONE_DISPLAY, PHONE_HREF, SMS_DISPLAY, SMS_HREF } from "@/lib/contact";
 import { SERVICES } from "@/lib/services";
 
 /** Header + footer for every page that isn't the homepage (which has its own
@@ -37,13 +37,16 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
       <section className="footer-cta">
         <div className="container footer-grid">
           <h2>Ready for a cleaner space?</h2>
-          <p>Get an instant price in 30 seconds, or call and we&apos;ll sort it out on the phone.</p>
+          <p>Get an instant price in 30 seconds, or call and we&apos;ll sort it out on the phone. Texts are fine too.</p>
           <div className="footer-actions">
             <Link href="/#quote" className="btn btn-primary">
               See my price
             </Link>
             <a href={PHONE_HREF} className="btn">
               Call {PHONE_DISPLAY}
+            </a>
+            <a href={SMS_HREF} className="btn">
+              Text {SMS_DISPLAY}
             </a>
           </div>
         </div>

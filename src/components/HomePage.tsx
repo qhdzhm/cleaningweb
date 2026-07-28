@@ -12,6 +12,7 @@ import {
   Buildings,
   CalendarBlank,
   CaretDown,
+  ChatCircleText,
   CheckCircle,
   CookingPot,
   Desktop,
@@ -33,7 +34,7 @@ import {
 } from "@phosphor-icons/react";
 import { supabase, type Booking } from "@/lib/supabase";
 import { FAQS } from "@/lib/faq";
-import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
+import { PHONE_DISPLAY, PHONE_HREF, SMS_DISPLAY, SMS_HREF } from "@/lib/contact";
 import {
   describeExtras,
   estimatePrice,
@@ -69,6 +70,19 @@ const SERVICE_CARDS = [
 const AREAS = ["Hobart", "Sandy Bay", "Glenorchy", "Kingston", "Moonah", "New Town", "Bellerive", "Howrah", "Lindisfarne"];
 
 const GOOGLE_REVIEW_URL = "https://g.page/r/CZKCYhr_fkF3EBM/review";
+
+/**
+ * Printed material (letterbox DL, magnets, car signage) carries a QR pointing at
+ * `/?src=…`. Stapling that onto the booking means the admin list shows which
+ * drop produced a lead, without paying for an analytics product. Sanitised
+ * because it lands in a free-text note field.
+ */
+function leadSource(): string | null {
+  if (typeof window === "undefined") return null;
+  const raw = new URLSearchParams(window.location.search).get("src");
+  const clean = raw?.replace(/[^\w-]/g, "").slice(0, 40);
+  return clean || null;
+}
 
 /**
  * Real Google reviews, trimmed for length. Excerpts only — wording is verbatim
@@ -285,6 +299,8 @@ export default function HomePage() {
     setSending(true);
     setError(false);
 
+    const src = leadSource();
+
     const booking: Booking = {
       customer_name: name.trim(),
       customer_phone: phone.trim(),
@@ -292,7 +308,7 @@ export default function HomePage() {
       service_subtype: selected.value,
       address: suburb.trim(),
       status: "new",
-      notes: `Suburb: ${suburb.trim()}`,
+      notes: src ? `Suburb: ${suburb.trim()} · Source: ${src}` : `Suburb: ${suburb.trim()}`,
     };
 
     if (priced) {
@@ -319,8 +335,8 @@ export default function HomePage() {
           access_key: WEB3FORMS_KEY,
           from_name: "NaturePure Website",
           subject: priced
-            ? `New quote — ${selected.label}, ${suburb.trim()} — Est. $${min}-$${max}`
-            : `New enquiry — ${selected.label}, ${suburb.trim()}`,
+            ? `New quote — ${selected.label}, ${suburb.trim()} — Est. $${min}-$${max}${src ? ` [${src}]` : ""}`
+            : `New enquiry — ${selected.label}, ${suburb.trim()}${src ? ` [${src}]` : ""}`,
           name: name.trim(),
           phone: phone.trim(),
           suburb: suburb.trim(),
@@ -329,6 +345,7 @@ export default function HomePage() {
           extras: priced ? describeExtras(extras) : "N/A",
           estimated_price: priced ? `$${min} - $${max}` : "Custom quote",
           booking_id: saved?.id ?? "unknown",
+          source: src ?? "website",
         }),
       });
       const json = await res.json();
@@ -382,6 +399,7 @@ export default function HomePage() {
             ))}
             <Link href="/blog" onClick={() => setMenuOpen(false)}>Advice</Link>
             <a href={PHONE_HREF}>Call {PHONE_DISPLAY}</a>
+            <a href={SMS_HREF}>Text {SMS_DISPLAY}</a>
           </nav>
         )}
       </header>
@@ -404,6 +422,9 @@ export default function HomePage() {
                 <a href="#quote" className="btn btn-primary">See my price<ArrowRight /></a>
                 <a href={PHONE_HREF} className="btn"><Phone />Call {PHONE_DISPLAY}</a>
               </div>
+              <a href={SMS_HREF} className="hero-sms">
+                <ChatCircleText weight="fill" />Prefer to text? {SMS_DISPLAY}
+              </a>
             </div>
           </div>
 
@@ -573,7 +594,7 @@ export default function HomePage() {
                   )}
                 </div>
 
-                {error && <p className="form-error">Something went wrong. Please call {PHONE_DISPLAY} instead.</p>}
+                {error && <p className="form-error">Something went wrong. Please call {PHONE_DISPLAY} or text {SMS_DISPLAY} instead.</p>}
                 {shows("contact") && <p className="privacy"><LockSimple />Your details are safe and never shared.</p>}
               </>
             )}
@@ -735,10 +756,11 @@ export default function HomePage() {
         <section className="footer-cta" id="contact">
           <div className="container footer-grid">
             <h2>Ready for a cleaner space?</h2>
-            <p>Get an instant price in 30 seconds, or call us and we&apos;ll sort it out on the phone.</p>
+            <p>Get an instant price in 30 seconds, or call and we&apos;ll sort it out on the phone. Texts are fine too.</p>
             <div className="footer-actions">
               <a href="#quote" className="btn btn-primary">See my price<ArrowRight /></a>
               <a href={PHONE_HREF} className="btn"><Phone weight="fill" />Call {PHONE_DISPLAY}</a>
+              <a href={SMS_HREF} className="btn"><ChatCircleText weight="fill" />Text {SMS_DISPLAY}</a>
             </div>
           </div>
           <div className="container footer-legal">

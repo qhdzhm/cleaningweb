@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteChrome from "@/components/SiteChrome";
-import { PHONE_DISPLAY, PHONE_E164, PHONE_HREF, SITE } from "@/lib/contact";
+import { PHONE_DISPLAY, PHONE_E164, PHONE_HREF, SMS_DISPLAY, SMS_HREF, SITE } from "@/lib/contact";
 import { SERVICES, getService } from "@/lib/services";
 
 export function generateStaticParams() {
@@ -103,6 +103,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </Link>
             <a href={PHONE_HREF} className="btn">
               Call {PHONE_DISPLAY}
+            </a>
+            <a href={SMS_HREF} className="btn">
+              Text {SMS_DISPLAY}
             </a>
           </div>
         </div>

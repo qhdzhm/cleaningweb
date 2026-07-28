@@ -129,6 +129,11 @@ html {
 .trust-item { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; }
 .trust-item svg { width: 27px; height: 27px; color: var(--green); }
 .hero-actions { display: flex; gap: 14px; }
+/* Low-friction fallback for people who arrived from a flyer and don't want to
+   ring a stranger. Deliberately quieter than the two buttons above it. */
+.hero-sms { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; color: var(--green); font-size: 12px; font-weight: 800; }
+.hero-sms svg { width: 17px; height: 17px; }
+.hero-sms:hover { color: var(--deep); text-decoration: underline; }
 .hero-visual { position: relative; min-height: 800px; background: #eaf2ea; }
 .hero-visual img { width: 100%; height: 100%; object-fit: cover; object-position: right center; }
 
