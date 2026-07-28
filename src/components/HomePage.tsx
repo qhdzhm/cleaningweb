@@ -320,6 +320,11 @@ export default function HomePage() {
       booking.estimated_price_max = max;
     }
 
+    // The database is a convenience; the email IS the lead. Saving used to run
+    // inside the same try as the notification, so a database outage threw before
+    // the email was ever sent — the customer got an error and we never heard
+    // about the enquiry at all. Keep the two independent.
+    let savedId = "not-saved";
     try {
       const { data: saved, error: dbError } = await supabase
         .from("bookings")
@@ -327,7 +332,12 @@ export default function HomePage() {
         .select()
         .single();
       if (dbError) throw dbError;
+      savedId = saved?.id ?? "unknown";
+    } catch (dbErr) {
+      console.error("Booking not saved to the database — sending the email anyway:", dbErr);
+    }
 
+    try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -344,7 +354,7 @@ export default function HomePage() {
           details: priced ? `${bedrooms} bed / ${bathrooms} bath · ${FREQUENCY_LABELS[frequency]}` : "Requires custom quote",
           extras: priced ? describeExtras(extras) : "N/A",
           estimated_price: priced ? `$${min} - $${max}` : "Custom quote",
-          booking_id: saved?.id ?? "unknown",
+          booking_id: savedId,
           source: src ?? "website",
         }),
       });
@@ -443,8 +453,15 @@ export default function HomePage() {
               <div className="quote-success">
                 <CheckCircle weight="duotone" />
                 <div>
-                  <h2>Thanks — we&apos;ll be in touch.</h2>
-                  <p>We&apos;ve got your details and will call you shortly to confirm your clean.</p>
+                  <h2>Thanks — we&apos;ve got it.</h2>
+                  {/* The enquiry now lives in one place: the inbox. Give a time
+                      expectation and a direct line, so nobody is left wondering
+                      whether the form actually worked. */}
+                  <p>
+                    We&apos;ll text or call you within a few hours to confirm your clean.
+                    In a hurry? Text us on {SMS_DISPLAY}.
+                  </p>
+                  <a className="btn" href={SMS_HREF}>Text {SMS_DISPLAY}</a>
                   <button className="btn" type="button" onClick={resetQuote}>Send another request</button>
                 </div>
               </div>

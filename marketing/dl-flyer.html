@@ -94,82 +94,82 @@ html,body{
 .tick{ display:inline-block; width:3mm; height:3mm; flex:none; }
 
 /* ---------- FRONT ---------- */
-.f-head{ padding:6mm 8mm; display:flex; align-items:center; justify-content:space-between; }
+.f-head{ padding:5mm 8mm; display:flex; align-items:center; justify-content:space-between; }
 .f-head .locale{ font-size:6.5pt; font-weight:800; letter-spacing:.2em; opacity:.8; text-align:right; }
 
-.f-photo{ position:relative; height:52mm; flex:none; background:var(--sage); }
+.f-photo{ position:relative; height:45mm; flex:none; background:var(--sage); }
 .f-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
 
-.f-body{ flex:1; padding:7mm 8mm 0; display:flex; flex-direction:column; }
+.f-body{ flex:1; min-height:0; padding:5mm 8mm 0; display:flex; flex-direction:column; }
 
 h1{
-  font-size:25pt; font-weight:700; line-height:1.05; letter-spacing:-.045em;
+  font-size:22.5pt; font-weight:700; line-height:1.04; letter-spacing:-.045em;
   color:var(--deep);
 }
-.f-sub{ margin-top:3.5mm; font-size:9pt; line-height:1.5; color:var(--muted); font-weight:500; }
+.f-sub{ margin-top:2.5mm; font-size:8.3pt; line-height:1.45; color:var(--muted); font-weight:500; }
 
 .offer{
-  margin-top:6mm; padding:4.5mm 5mm;
+  margin-top:4mm; padding:3.5mm 5mm;
   background:var(--sage); border:0.5mm dashed #a9c8b7; border-radius:1.5mm;
   text-align:center;
 }
-.offer .big{ font-size:19pt; font-weight:800; letter-spacing:-.03em; color:var(--deep); line-height:1.05; }
+.offer .big{ font-size:17pt; font-weight:800; letter-spacing:-.03em; color:var(--deep); line-height:1.05; }
 .offer .code{
-  display:inline-block; margin-top:2.5mm; padding:1.4mm 3.5mm;
+  display:inline-block; margin-top:2mm; padding:1.2mm 3.5mm;
   background:var(--deep); color:#fff; border-radius:1mm;
   font-size:7.5pt; font-weight:800; letter-spacing:.12em;
 }
 
 .f-price{
-  margin-top:5mm; padding-top:4mm; border-top:0.3mm solid var(--line);
-  font-size:9.5pt; font-weight:700; color:var(--ink); line-height:1.45;
+  margin-top:3.5mm; padding-top:3mm; border-top:0.3mm solid var(--line);
+  font-size:9pt; font-weight:700; color:var(--ink); line-height:1.4;
 }
 .f-price b{ color:var(--green); font-size:12pt; }
 .f-price span{ display:block; margin-top:1mm; font-size:7.5pt; font-weight:600; color:var(--muted); }
 
-.trust{ margin-top:auto; padding:5mm 0 6mm; display:flex; justify-content:space-between; gap:2mm; }
+.trust{ margin-top:auto; padding:3mm 0 4mm; display:flex; justify-content:space-between; gap:2mm; }
 .trust div{ display:flex; align-items:center; gap:1.6mm; font-size:6.8pt; font-weight:800; color:var(--ink); }
 .trust svg{ fill:var(--green); }
 
 /* ---------- footer contact band (both sides) ---------- */
-.contact{ padding:6mm 8mm; display:flex; align-items:center; gap:5mm; }
+.contact{ flex:none; padding:4mm 8mm; display:flex; align-items:center; gap:4mm; }
 .contact .qr{
-  width:26mm; height:26mm; flex:none;
+  width:22mm; height:22mm; flex:none;
   padding:1.5mm; background:#fff; border-radius:1.5mm;
 }
 .contact .qr svg{ width:100%; height:100%; display:block; }
 .contact .lines{ flex:1; min-width:0; }
 .contact .kicker{ font-size:7pt; font-weight:800; letter-spacing:.1em; opacity:.8; text-transform:uppercase; }
-.contact .headline{ margin-top:1.5mm; font-size:11pt; font-weight:800; letter-spacing:-.02em; line-height:1.2; }
-.contact .rows{ margin-top:3mm; display:grid; gap:1.6mm; }
-.contact .row{ display:flex; align-items:center; gap:2mm; font-size:8.5pt; font-weight:700; }
+.contact .headline{ margin-top:1mm; font-size:10pt; font-weight:800; letter-spacing:-.02em; line-height:1.15; }
+.contact .rows{ margin-top:2mm; display:grid; gap:1.2mm; }
+.contact .row{ display:flex; align-items:center; gap:1.6mm; font-size:7.5pt; font-weight:700; }
 .contact .row svg{ width:3.4mm; height:3.4mm; fill:#fff; opacity:.85; flex:none; }
 .contact .row em{ font-style:normal; font-weight:600; opacity:.75; font-size:7pt; }
-.contact .web{ margin-top:3mm; font-size:7.5pt; font-weight:700; opacity:.85; }
+.contact .web{ margin-top:2mm; font-size:7pt; font-weight:700; opacity:.85; }
 
 /* ---------- BACK ---------- */
-.b-head{ padding:5.5mm 8mm; display:flex; align-items:baseline; justify-content:space-between; }
+.b-head{ padding:4.5mm 8mm; display:flex; align-items:baseline; justify-content:space-between; }
 .b-head h2{ font-size:11.5pt; font-weight:800; letter-spacing:-.02em; }
 .b-head span{ font-size:6.5pt; font-weight:700; letter-spacing:.18em; opacity:.8; }
 
-.b-body{ flex:1; padding:6mm 8mm 0; display:flex; flex-direction:column; }
+.b-body{ flex:1; min-height:0; padding:4.5mm 8mm 0; display:flex; flex-direction:column; }
 
-.checks{ display:grid; grid-template-columns:1fr 1fr; gap:4mm 5mm; }
+.checks{ display:grid; grid-template-columns:1fr 1fr; gap:3mm 5mm; }
 .checks .col h3{
   font-size:8pt; font-weight:800; color:var(--deep); letter-spacing:.04em;
   text-transform:uppercase; padding-bottom:1.6mm; margin-bottom:2mm;
   border-bottom:0.3mm solid var(--line);
 }
 .checks .col.wide{ grid-column:1 / -1; }
-.checks ul{ list-style:none; display:grid; gap:1.4mm; }
-.checks .col.wide ul{ grid-template-columns:1fr 1fr; gap:1.4mm 5mm; }
+.checks ul{ list-style:none; display:grid; gap:1mm; }
+.checks .col.wide ul{ grid-template-columns:1fr 1fr; gap:1mm 5mm; }
 .checks li{ position:relative; padding-left:3.4mm; font-size:7.5pt; line-height:1.35; color:#3f4f47; font-weight:600; }
 .checks li::before{
   content:""; position:absolute; left:0; top:1.1mm;
   width:1.6mm; height:1.6mm; border-radius:50%; background:var(--green);
 }
 
-.ba{ margin-top:5mm; position:relative; height:34mm; overflow:hidden; border-radius:1.5mm; background:var(--sage); }
+.ba{ flex:none; margin-top:3mm; position:relative; height:21mm; overflow:hidden; border-radius:1.5mm; background:var(--sage); }
 .ba img{ width:100%; height:100%; object-fit:cover; display:block; }
 .ba .labels{ position:absolute; left:0; right:0; bottom:2mm; display:flex; justify-content:space-between; padding:0 2.5mm; }
 .ba .labels span{
@@ -178,21 +178,21 @@ h1{
 }
 .ba .labels span:last-child{ background:var(--green); }
 
-.quote{ margin-top:5mm; padding:4mm 4.5mm; background:var(--mist); border-left:0.9mm solid var(--green); border-radius:0 1.5mm 1.5mm 0; }
+.quote{ margin-top:3.5mm; padding:3mm 4mm; background:var(--mist); border-left:0.9mm solid var(--green); border-radius:0 1.5mm 1.5mm 0; }
 .quote .stars{ color:var(--gold); font-size:8pt; letter-spacing:1.6px; }
-.quote blockquote{ margin-top:1.8mm; font-size:8pt; line-height:1.5; color:#3f4f47; font-weight:600; }
+.quote blockquote{ margin-top:1.5mm; font-size:7.7pt; line-height:1.4; color:#3f4f47; font-weight:600; }
 .quote cite{ display:block; margin-top:2.2mm; font-size:6.8pt; font-weight:800; font-style:normal; color:var(--green); }
 
-.why{ margin-top:5mm; }
+.why{ margin-top:3.5mm; }
 .why h3{ font-size:8pt; font-weight:800; color:var(--deep); letter-spacing:.04em; text-transform:uppercase; }
-.why p{ margin-top:1.8mm; font-size:7.8pt; line-height:1.55; color:var(--muted); font-weight:500; }
+.why p{ margin-top:1.4mm; font-size:7.5pt; line-height:1.45; color:var(--muted); font-weight:500; }
 
-.suburbs{ margin-top:auto; padding:4.5mm 0 5mm; }
+.suburbs{ margin-top:auto; padding:3mm 0 3.5mm; }
 .suburbs h3{ font-size:6.5pt; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--green); }
 .suburbs p{ margin-top:1.8mm; font-size:7.5pt; line-height:1.5; color:#3f4f47; font-weight:700; }
 
 .fineprint{
-  padding:3mm 8mm 4mm; background:#00472f; color:rgba(255,255,255,.62);
+  padding:2mm 8mm 2.5mm; background:#00472f; color:rgba(255,255,255,.62);
   font-size:5.8pt; line-height:1.5; font-weight:600; text-align:center;
   -webkit-print-color-adjust:exact; print-color-adjust:exact;
 }
@@ -327,8 +327,8 @@ h1{
     <div class="quote">
       <div class="stars">★★★★★</div>
       <blockquote>
-        &ldquo;Everything was done to a high standard &mdash; bathrooms spotless,
-        floors looking great, and all the little details were taken care of.&rdquo;
+        &ldquo;Bathrooms spotless, floors looking great, and all the little details
+        were taken care of.&rdquo;
       </blockquote>
       <cite>&mdash; Google review, Hobart</cite>
     </div>
@@ -336,9 +336,8 @@ h1{
     <div class="why">
       <h3>Why no chemicals?</h3>
       <p>
-        Water and premium microfibre lift dirt mechanically, instead of dissolving it
-        in something your kids and pets breathe afterwards. No fumes, no residue,
-        no hospital smell &mdash; just a house that&rsquo;s actually clean.
+        Premium microfibre lifts dirt with water alone, leaving no fumes, residue
+        or harsh chemical smell - just a properly clean home.
       </p>
     </div>
 

@@ -166,6 +166,7 @@ html {
 .field select:focus, .field input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(0,122,80,.1); }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .quote-card .quote-success .btn { width: 100%; min-height: 46px; }
+.quote-card .quote-success .btn + .btn { margin-top: 8px; }
 .privacy { display: flex; justify-content: center; align-items: center; gap: 6px; margin: 12px 0 0; color: #718078; font-size: 9px; }
 .form-error { margin: 10px 0 0; color: #b3261e; font-size: 11px; font-weight: 700; text-align: center; }
 
